@@ -1,0 +1,8 @@
+rawdata/sushi3-2016/*
+*.csv
+*.png
+src/app_advance.py
+src/transform_rawdata_advance.py
+src/image_downloader.py
+src/resize_image.py
+.DS_Store
