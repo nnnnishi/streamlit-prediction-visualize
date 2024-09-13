@@ -7,7 +7,7 @@ import glob
 st.sidebar.title("設定")
 
 # CSVファイルのリストを取得
-csv_files = glob.glob(os.path.join("recommend_score", "*.csv"))
+csv_files = glob.glob(os.path.join("data", "*_results.csv"))
 
 # ファイル選択のプルダウン
 selected_file = st.sidebar.selectbox("出力ファイルを選択してください", csv_files)
@@ -15,7 +15,7 @@ selected_file = st.sidebar.selectbox("出力ファイルを選択してくださ
 # メインの処理
 if selected_file:
     # データの読み込み
-    sushi_ratings = pd.read_csv(os.path.join("preprocessed_data", "sushi_ratings.csv"))
+    sushi_ratings = pd.read_csv("data/sushi_ratings.csv")
     output_data = pd.read_csv(selected_file)
 
     # ユーザーIDの選択
@@ -28,7 +28,7 @@ if selected_file:
     ].sort_values("score", ascending=False)
     user_predictions = output_data[
         output_data["user_id"] == selected_user_id
-    ].sort_values("predicted_rating", ascending=False)
+    ].sort_values("predicted_score", ascending=False)
 
     # 実際の評価の表示（2行5列）
     st.header("実際の評価値")
@@ -47,7 +47,7 @@ if selected_file:
         if col < len(user_predictions):
             item = user_predictions.iloc[col]
             cols[col].write(
-                f"{item['item_name']}  \n予測スコア: {item['predicted_rating']:.2f}"
+                f"{item['item_name']}  \n予測スコア: {item['predicted_score']:.2f}"
             )
 else:
     st.write("CSVファイルを選択してください。")
