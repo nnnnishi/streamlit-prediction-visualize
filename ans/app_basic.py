@@ -9,7 +9,7 @@ st.sidebar.title("設定")
 # CSVファイルのリストを取得
 csv_files = glob.glob(os.path.join("data", "*_results.csv"))
 
-# ファイル選択のプルダウン
+# ファイル選択のセレクトボックス
 selected_file = st.sidebar.selectbox("出力ファイルを選択してください", csv_files)
 
 # メインの処理

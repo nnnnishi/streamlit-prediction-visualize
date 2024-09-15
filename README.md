@@ -8,4 +8,4 @@ https://www.kamishima.net/sushi/
 - sushi3-2016をrawdataディレクトリ以下に配置
 - src/preprocess_rawdata.pyを利用してデータの前処理
 - src/recommend_basic.pyを利用して協調フィルタリングによるスコアリング
-- streamlit run ans/app_basic.pyでアプリケーション起動
+- streamlit run work/app_basic.pyでアプリケーション起動

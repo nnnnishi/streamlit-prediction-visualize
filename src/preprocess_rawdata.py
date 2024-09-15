@@ -45,7 +45,6 @@ def load_sushi_items(file_path):
         "eating_frequency",
         "price",
         "selling_frequency",
-        "name_ja",
     ]
     return items
 
@@ -87,7 +86,7 @@ def preprocess_sushi_data(sushi_data, sushi_items):
     melted_data = melted_data[melted_data["score"] != -1]
     # item_idに対応する寿司の名前を結合
     melted_data = melted_data.merge(
-        sushi_items[["item_id", "name", "name_ja"]], on="item_id", how="left"
+        sushi_items[["item_id", "name"]], on="item_id", how="left"
     )
     # ユーザーごとにランク付け、rankは整数値にする
     # rankの説明: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rank.html
@@ -97,13 +96,13 @@ def preprocess_sushi_data(sushi_data, sushi_items):
         .astype(int)
     )
     # 必要な列だけを選択し、ソート
-    result = melted_data[["user_id", "rank", "item_id", "name", "name_ja", "score"]]
+    result = melted_data[["user_id", "rank", "item_id", "name", "score"]]
     result = result.sort_values(["user_id", "rank"])
     return result
 
 
 score_file_path = "rawdata/sushi3-2016/sushi3b.5000.10.score"
-items_file_path = "rawdata/sushi3-2016/sushi3_2.idata"
+items_file_path = "rawdata/sushi3-2016/sushi3.idata"
 
 # スコアデータの読み込み
 sushi_data = load_sushi_data(score_file_path)
