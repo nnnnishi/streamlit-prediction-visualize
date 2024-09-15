@@ -1,4 +1,4 @@
-# Streamlit prediction visualize sample
+# DSの結果をアプリで確認
 
 ## データセット
 以下のSUSHI Preference Data Setsを利用  
