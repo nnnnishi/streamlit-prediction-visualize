@@ -1,3 +1,4 @@
+# 実行はstreamlit-prediction-visualizeの階層で streamlit run work/app_basic.pyとする
 import streamlit as st
 import pandas as pd
 import os

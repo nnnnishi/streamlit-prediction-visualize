@@ -1,7 +1,7 @@
 # Streamlit prediction visualize sample
 
 ## データセット
-以下のSUSHI Preference Data Setsを利用
+以下のSUSHI Preference Data Setsを利用  
 https://www.kamishima.net/sushi/
 
 ## 処理方法
